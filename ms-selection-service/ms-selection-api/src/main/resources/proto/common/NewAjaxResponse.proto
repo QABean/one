@@ -1,0 +1,9 @@
+syntax = "proto3";
+option java_package="cn.migu.sns.proto.base";
+
+message NewAjaxResponse{
+	//状态码
+	string status = 2;
+	//描述语
+	string message = 4;
+}

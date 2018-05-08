@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message VoteToFreeResponse{
+	 string pluginCode = 1;
+     string status = 2;
+     string isvisable = 3;
+     VoteToFreeData data = 4;
+	 string messageDesc = 5;
+}
+
+message VoteToFreeData{
+	 string isAjax = 1;  // 组件是否包含ajax请求。0:不包含;1:包含
+	 string isMarginTop = 2;
+	 string isMarginBottom = 3;
+	 string isPaddingTop = 4;
+	 string isShowLine = 5;
+	 repeated VoteBooks votes = 6;
+	 map<string, string> ctag = 7;
+     
+}
+
+message VoteBooks{
+	 string tpbuttonDesc = 1; //投票按钮描述
+	 string bookShowName = 2; //图书名称
+	 string authorName = 3; //作者名称
+	 string bookShortDesc = 4; //图书简介
+	 string bookCoverLogo = 5; //图书封面
+	 string bookDetailUrl = 6; //图书链接地址
+	 string voteUrl = 7; //投票地址
+	 string voteNum = 8; //投票数量
+	 string loginType = 9; //当前用户登录状态，0:用户未登录；1:用户已登录
+	 
+}

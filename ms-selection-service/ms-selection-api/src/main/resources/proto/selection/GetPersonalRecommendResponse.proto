@@ -1,0 +1,40 @@
+syntax = "proto3";
+option java_package="cn.migu.selection.proto.base";
+
+message GetPersonalRecommendResponse{
+	//业务编码
+	string pluginCode = 1;
+	//状态码
+	string status = 2;
+	//是否可见
+	string isvisable = 3;
+	//状态描述
+	string messageDesc = 4;
+	//响应数据
+	GetPersonalRecommendData data = 5;	
+}
+
+message GetPersonalRecommendData{
+	//是否展示底部横线
+	string isShowLine = 1;
+	//上边距
+	string isMarginTop = 2;
+	//下边距
+	string isMarginBottom = 3;
+	//是否显示内边距
+	string isPaddingTop = 4;
+	//ajax请求时，返回的对象
+	map<string, string> ctag = 5;
+	//标题文本
+	string titleText = 6;
+	//标题描述
+	string titleDesc = 7;
+	//角标展示 1:免费;2:限免;3:会员;4:完本;5:名家;6:上传
+	string cornerShow = 8;
+	//展示样式  1:在看人数; 2:作者名
+	string showStyle = 9;
+	//从系统书签中获取到的图书ID列表
+	string bookArray = 10;
+	//用户手机号
+	string msisdn = 11;
+}

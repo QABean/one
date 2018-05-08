@@ -1,0 +1,51 @@
+syntax = "proto3";
+option java_package="cn.migu.selection.proto.base";
+
+message ApiLevelOneAdResponse{
+	//业务编码
+	string pluginCode = 1;
+	//状态码
+	string status = 2;
+	//是否可见
+	string isvisable = 3;
+	//状态描述
+	string messageDesc = 4;
+	
+	//响应数据
+	ApiLevelOneAdData data = 5;	
+}
+message ApiLevelOneAdData{
+	//是否展示底部横线
+	string isShowLine = 1;
+	//上边距
+	string isMarginTop = 2;
+	//下边距
+	string isMarginBottom = 3;
+	//是否显示内边距
+	string isPaddingTop = 4;
+	//ajax请求时，返回的对象
+	map<string, string> ctag = 5;
+	
+	//appid
+	string appid = 6;
+	//平台授权id
+	string authid = 7;
+	//广告位id
+	string id = 8;
+	//行为类型，0:全部;1:跳转;2:下载;
+	string actiontype = 9;
+	//token
+	string token = 10;
+	//是否只是曝光 1:是;0:否，默认1
+	string isbaoNoShow = 11;
+	//是否点击曝光，1:是;0:否;默认0
+	string isClickBaoguang = 12;
+	//广告刷量百分之多少，范围0~100，默认0
+	string bgbfb = 13; 
+	//手机号传输类型
+	string pnumberha = 14;
+	//手机号，明文或密文
+	string pnumber = 15;
+	//记录广告相关行为话单 
+	string ajaxAdvertRecord = 16;
+}

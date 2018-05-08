@@ -1,0 +1,20 @@
+syntax = "proto3";
+option java_package="cn.migu.selection.proto.base";
+
+message AbetOrOpposePostResponse{
+	
+	 /**
+      * 响应状态码
+      */
+	 string status=1;
+	 /**
+      * 响应描述
+      */
+	 string messageDesc=2;
+	 
+	 string  isMarginTop=3;
+	 
+	 string  isMarginBottom=4;
+	 
+	 string isShowline = 5;
+}

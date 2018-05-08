@@ -1,0 +1,56 @@
+syntax = "proto3";
+option java_package="cn.migu.selection.proto.base";
+
+message RankTripleBooksResponse{
+	//业务编码
+	string pluginCode = 1;
+	//状态码
+	string status = 2;
+	//是否可见
+	string isvisable = 3;
+	//状态描述
+	string messageDesc = 4;
+	//响应数据
+	RankTripleBooksData data = 5;	
+}
+
+message RankTripleBooksData{
+	//是否展示底部横线
+	string isShowLine = 1;
+	//上边距
+	string isMarginTop = 2;
+	//下边距
+	string isMarginBottom = 3;
+	//是否显示内边距
+	string isPaddingTop = 4;
+	//ajax请求时，返回的对象
+	map<string, string> ctag = 5;
+	//排列类型
+	string rankShowType = 6;
+	//展示类型
+	string showType = 7;
+	//点击量文本
+	string clickValue = 8;
+	//点击数据来源
+	string clickNumType = 9;
+	//排行列表
+	repeated NewRankList newRankList = 11;
+}
+
+message NewRankList{
+	//图书名称
+	string bookName = 1;
+	//图书封面
+	string bookCover = 2;
+	//图书简介
+	string bookBrief = 3;
+	//图书链接
+	string bookUrl = 4;
+	//作家名称
+	string authorName = 5;
+	//点击量
+	int32 bookClickNum = 6;
+	//图书排行变化
+	string rankChange = 7;
+
+}

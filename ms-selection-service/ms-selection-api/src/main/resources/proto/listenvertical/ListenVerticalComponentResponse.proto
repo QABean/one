@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message ListenVerticalComponentResponse{
+	string pluginCode = 1;
+	string status = 2;
+    string isvisable = 3;
+    ListenVerticalData data = 4;
+    string messageDesc = 5;
+}
+
+message ListenVerticalData{
+	string isAjax = 1;
+	string isMarginTop = 2;
+	string isMarginBottom = 3;
+	string isPaddingTop = 4;
+	string isShowLine = 5;
+	repeated ListenVerticalBooks books = 6;
+	map<string, string> ctag = 7;
+}
+
+message ListenVerticalBooks{
+	string bookId = 1;
+	string bookShowName = 2;
+	string contentType = 3;
+	string authorName = 4;
+	string authorDetailUrl = 5;
+	string chapterId = 6;
+	string bookShortDesc = 7;
+	string bookCoverLogo = 8;
+	string speakerName = 9;
+	string speakerDetailUrl = 10;
+	string cornerShowType = 11;
+	string bookStatus = 12;
+}

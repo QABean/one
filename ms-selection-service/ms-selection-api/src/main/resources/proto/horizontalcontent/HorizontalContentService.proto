@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "common/ComponentRequest.proto";
+import "horizontalcontent/HorizontalContentResponse.proto";
+
+option java_package = "cn.migu.selection.proto.horizontalcontentservice";
+option java_outer_classname = "_HorizontalContentService";
+option java_generic_services = true;
+
+service HorizontalContentService{
+	rpc getHorizontalContentInfo (ComponentRequest) returns (HorizontalContentResponse);
+}

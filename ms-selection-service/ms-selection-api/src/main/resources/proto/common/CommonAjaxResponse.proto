@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message CommonAjaxResponse{
+	string resultCode = 2; //响应码，200为成功，其他为失败
+	string codeDesc = 4; //响应码描述，一般为内部错误描述语，仅供参考调试
+	string resultMsg = 3; //提示语，一般为出错时给用户的提示语
+}

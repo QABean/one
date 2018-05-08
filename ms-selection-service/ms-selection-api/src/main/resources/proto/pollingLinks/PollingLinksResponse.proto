@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+option java_package="cn.migu.selection.proto.base";
+
+message PollingLinksResponse{
+	 string pluginCode = 1;
+     string status = 2;
+     string isvisable = 3;
+     string messageDesc = 4;
+     PollingLinksData data = 5;
+}
+
+message PollingLinksData{
+	string isMarginTop =1;
+	string isMarginBottom =2;
+	string isPaddingTop = 3;
+	string isShowLine = 4;
+	//背景样式：1:样式1（白底）;2:样式2（红底）
+    string backGroundType = 5;
+    //链接个数限制
+    string linkNumLimit = 6;
+	repeated PollingLinkInfoList linkInfoList = 7;
+}
+
+message PollingLinkInfoList{
+    //链接id
+	string linkId = 1;
+	//链接名称
+	string linkName = 2;
+	//链接前缀
+	string linkPrefix = 3;
+	//链接描述
+	string linkDesc = 4;
+	//链接后缀
+    string linkSuffix = 5;
+    //链接地址
+    string linkUrl = 6;
+    //外站链接
+    string linkWebUrl = 7;
+    //图片地址
+    string picUrl = 8;
+    //开始时间，格式yyyy-MM-dd HH:mm:ss
+    string beginTime = 9;
+    //结束时间，格式yyyy-MM-dd HH:mm:ss
+    string endTime = 10;
+}

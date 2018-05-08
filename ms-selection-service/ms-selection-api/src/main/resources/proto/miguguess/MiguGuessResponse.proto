@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message MiguGuessResponse{
+	 string pluginCode = 1;
+     string status = 2;
+     string isvisable = 3;
+     string messageDesc = 4;
+     MiguGuessData data = 5;
+
+}
+
+message MiguGuessData{
+    //上边距
+	string isMarginTop = 1;
+	//下边距
+	string isMarginBottom = 2;
+	//是否显示内边距
+	string isPaddingTop = 3;
+	//是否展示底部横线
+	string isShowLine = 4;
+    //标题
+	string title = 5;
+    //数据来源： 15:新书;14:热书;16:标签; 17:普通;65:综合;63:关联推荐图书level=1的图书;默认:65;
+	string dataFrom = 6;
+    //角标展示：1:免费;2:限免;3:会员;4:完本;5:名家;6:上传;逗号分隔，透传配置的参数
+	string cornerShowType = 7;
+    //展示数量
+	string pageSize = 8;
+
+	string pageNo = 9;
+    //间隔图书数量
+	string sheetCount = 10;
+    //关联的手机账号
+	string relatedAccount = 11;
+    //客户端版本号，默认"android"
+	string clientVersion = 12;
+    //用户msisdn
+	string msisdn = 13;
+    //用户偏好值，默认返回7
+	string editionId = 14;
+    //组件id
+	string instanceId = 15;
+
+}
+
+/**
+message GuessBooks{
+	 string bookShowName = 1;
+	 string bookCoverLogo = 2;
+	 string bookDetailUrl = 3;
+	 string authorName = 4;
+	 string bookShortDesc = 5;
+	 string contentType = 6;
+	 string cornerShowType = 7;
+	 BookSheetInfoDataInfo booksheet = 8;
+}
+message BookSheetInfoDataInfo{
+	 string sheetTitle = 1;
+	 string sheetDesc = 2;
+	 string sheetUrl = 3;
+	 repeated Bookss books = 4;
+}
+message Bookss{
+	 string bookShowName = 1;
+	 string bookCoverLogo = 2;
+	 string bookDetailUrl = 3;
+	 string authorName = 4;
+	 string bookShortDesc = 5;
+	 string contentType = 6;
+	 string cornerShowType = 7;
+}
+**/
+

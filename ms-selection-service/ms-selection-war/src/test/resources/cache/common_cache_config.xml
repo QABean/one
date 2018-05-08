@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<items>
+	<!-- book cache begin -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>PORTALBOOKINFOCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalContentInfoMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_PORTAL_BOOKINFO">
+			cn.migu.newportal.cache.cache.dataloader.PortalBookInfoDataLoader
+		</DBDtaLoader>
+		<InvalidDataCache invalidTime="60">
+			cn.migu.newportal.util.cache.oscache.InvalidDataBeanCache
+		</InvalidDataCache>
+	</item>
+
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>PORTAL_BOOKEXTINFO_CACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalContentExtInfoMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_PORTAL_BOOKEXTINFO">
+			cn.migu.newportal.cache.cache.dataloader.PortalBookExtInfoDataLoader
+		</DBDtaLoader>
+	</item>
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>BOOKCOVERCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.oscache.BookCoverOSCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+	</item>
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>PORTALTOMEINFOCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalTomeInfoMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_PORTALTOMEINFOCACHE">
+			cn.migu.newportal.cache.cache.dataloader.PortalTomeInfoDataLoader
+		</DBDtaLoader>
+	</item>
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>PORTALCHAPTERINFOCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalChapterInfoMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_PORTAL_CHAPTERINFO">
+			cn.migu.newportal.cache.cache.dataloader.PortalChapterInfoDataLoader
+		</DBDtaLoader>
+	</item>
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>CHAPTERFILECACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalChapterFileMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="GETCHAPTERFILE_DATALOADER">
+			cn.migu.newportal.cache.cache.dataloader.GetChapterFileDataloader
+		</DBDtaLoader>
+	</item>
+	<!-- book cache end -->
+	<!-- node star -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>PORTAL_NODEINFO_CACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalNodeInfoMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_PORTAL_NODEINFO">
+			cn.migu.newportal.cache.cache.dataloader.PortalNodeInfoDataLoader
+		</DBDtaLoader>
+		<DBDtaLoader name="DATALOADER_PORTAL_NODE_BASE_INFO">
+			cn.migu.newportal.cache.cache.dataloader.PortalNodeBaseInfoDataLoader
+		</DBDtaLoader>
+	</item>
+	<!-- node end -->
+	<!-- 作者信息 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>AUTHORINFOCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PotalAuthorInfoMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_AUTHORINFOCACHE">
+			cn.migu.newportal.cache.cache.dataloader.PotalAuthorInfoDataLoader
+		</DBDtaLoader>
+	</item>
+
+	<!-- 获取论坛id -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>POSTINFOCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalPostInfoMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_POSTINFO">
+			cn.migu.newportal.cache.cache.dataloader.PortalPostInfoDataLoader
+		</DBDtaLoader>
+	</item>
+	<!-- 获取论坛对象 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>FORUMINFOCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalForumInfoMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_FORUMINFO">
+			cn.migu.newportal.cache.cache.dataloader.PortalForumInfoDataLoader
+		</DBDtaLoader>
+	</item>
+	<!-- 获取评论用户信息 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>USERINFOSNSCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.oscache.PortalUserInfoSNSOSCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_GETUSERINFOSNS">
+			cn.migu.newportal.cache.cache.dataloader.PortalUserInfoSNSDataLoader
+		</DBDtaLoader>
+	</item>
+	<!-- 获取指定用户的头像 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>USERHEADIMGCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalUserPortraitMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="USERHEADIMGCACHE_DATALOADER">
+			cn.migu.newportal.cache.cache.dataloader.PortalUserPortraitDataLoader
+		</DBDtaLoader>
+	</item>
+	<!-- 功能支持 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>CAPACITYSUPPORTCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.oscache.PortalCapacitySupportOSCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_CAPACITYSUPPORT">
+			cn.migu.newportal.cache.cache.dataloader.PotalCapacitySupportDataLoader
+		</DBDtaLoader>
+	</item>
+	<!-- 精选关联 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>ESSENCERELATIONCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PotalEssenceRelationMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="GETESSENCERELINFO_DATALOADER">
+			cn.migu.newportal.cache.cache.dataloader.PotalEssenceRelationDataLoader
+		</DBDtaLoader>
+	</item>
+	<!-- 获取书签信息 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>BOOKMARKINFOCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PotalBookMarkMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_BOOKMARKINFO">
+			cn.migu.newportal.cache.cache.dataloader.PotalBookMarkDataLoader
+		</DBDtaLoader>
+	</item>
+	<!-- 内容推荐 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>CONTENTRECOMMENDINFO</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalContentRecommendMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_CONTENTCACHE">
+			cn.migu.newportal.cache.cache.dataloader.PortalContentRecommendDataLoader
+		</DBDtaLoader>
+	</item>
+
+	<!-- BI猜你喜欢的 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>BIRECOMMENDCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalBIRecommendMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_BIRECOMMENDCACHE">
+			cn.migu.newportal.cache.cache.dataloader.BIRecommendDataLoader
+		</DBDtaLoader>
+	</item>
+
+	<!-- BI查询BI排行榜数据 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>BIRANKCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalBIRankMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_BIRANKCACHE">
+			cn.migu.newportal.cache.cache.dataloader.BIRankDataLoader
+		</DBDtaLoader>
+	</item>
+
+	<!-- 包含本书书单列表 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>BOOKSHEETRANKCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalBookSheetRankMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_BOOKSHEETSHAREBYBOOKIDRANK">
+			cn.migu.newportal.cache.cache.dataloader.GetShareRankbyBookDataLoader
+		</DBDtaLoader>
+	</item>
+
+	<!-- 获取书单信息 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>BOOKSHEETINFOCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalBookSheetInfoMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_GETBOOKSHEETINFO">
+			cn.migu.newportal.cache.cache.dataloader.PortalBookSheetInfoDataLoader
+		</DBDtaLoader>
+	</item>
+
+	<!-- 听书详情页同类推荐 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>SPEAKERINFOCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalSpeakerInfoMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_SPEAKERCACHE">
+			cn.migu.newportal.cache.cache.dataloader.PortalSpeakerDataLoader
+		</DBDtaLoader>
+		<DBDtaLoader name="DATALOADER_SPEAKERINFO">
+			cn.migu.newportal.cache.cache.dataloader.SpeakerInfoDataLoader
+		</DBDtaLoader>
+	</item>
+
+	<!-- 查询图书统计信息 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>BOOKRANKVALUECACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PotalBookStatMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="GETBOOKSTATINFO_DATALOADER">
+			cn.migu.newportal.cache.cache.dataloader.PotalBookStatDataLoader
+		</DBDtaLoader>
+	</item>
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>CYCLEDATACACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.oscache.NewCycleDataOSCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>800</maxThread>
+	</item>
+
+	<!-- 内容排序 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>CONTENTSORTCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalContentSortMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>800</maxThread>
+		<DBDtaLoader name="DATALOADER_CONTENTSORT">
+			cn.migu.newportal.cache.cache.dataloader.PortalContentSortDataLoader
+		</DBDtaLoader>
+		<DBDtaLoader name="DATALOADER_NODEBOOKMAP">
+			cn.migu.newportal.cache.cache.dataloader.NodeBookMapDataLoader
+		</DBDtaLoader>
+	</item>
+
+	<!-- readNum zhangmm -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>BOOKUVCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.BookUVMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_BOOKUVOSCACHE">
+			cn.migu.newportal.cache.cache.dataloader.BookUVOsCacheDataLoader
+		</DBDtaLoader>
+	</item>
+
+	<!-- generalinfocache begin -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>GENERALINFOCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalGeneralInfoMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="GETCONFIGVALUE_DATALOADER">
+			cn.migu.newportal.cache.cache.dataloader.GetConfigValueDataloader
+		</DBDtaLoader>
+		<InitTask>
+			cn.migu.newportal.cache.cache.inittask.PortalTestUserInitTask
+		</InitTask>
+		<InitTask>
+			cn.migu.newportal.cache.cache.inittask.PortalHotBooksInitTask
+		</InitTask>
+	</item>
+	<!-- generalinfocache end -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>PORTAL_BOOKCATALOGLIST</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalBookCatalogListMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_PORTAL_BOOKCATALOGLIST">
+			cn.migu.newportal.cache.cache.dataloader.PortalBookCatalogListDataLoader
+		</DBDtaLoader>
+	</item>
+	<!-- campaignCache begin -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>PORTAL_CAMPAIGNACTIVITY</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalCampaignActivityMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_PORTAL_CAMPAIGNACTIVITY">
+			cn.migu.newportal.cache.cache.dataloader.PortalCampaignActivityDataLoader
+		</DBDtaLoader>
+	</item>
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>BOOKCLASSINFOCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.NewBookClassInfoMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="GETBOOKCLASSINFO_DATALOADER">
+			cn.migu.newportal.cache.cache.dataloader.GetBookClassInfoDataloader
+		</DBDtaLoader>
+	</item>
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>BOOKSCOREDETAILLISTCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.oscache.BookScoreDetailOScache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_BOOKSCOREDETAIL">
+			cn.migu.newportal.cache.cache.dataloader.GetBookScoreDetailDataLoader
+		</DBDtaLoader>
+	</item>
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>COMMONINFOCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.oscache.NewCommonInfoOSCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="GETONLINESERVICE_DATALOADER">
+			cn.migu.newportal.cache.cache.dataloader.GetMiGuOnlineServiceDataloader
+		</DBDtaLoader>
+	</item>
+
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>NEWCONTENTOSCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.oscache.NewContentOSCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+	</item>
+
+
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>NEWNODEITEMOSCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.oscache.NewNodeItemOSCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+	</item>
+
+	<!-- 预订更新30分钟缓存 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>RESERVEBOOKCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.GetUserReserveBookIdsMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_RESERVEBOOK">
+			cn.migu.newportal.cache.cache.dataloader.GetUserReserveBookIdsDataLoader
+		</DBDtaLoader>
+	</item>
+
+    <!-- 赠书活动缓存 -->
+    <item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+        <name>PRESENTBOOKSCACHE</name>
+        <Cache>
+            cn.migu.newportal.cache.cache.memcache.PresentBooksMemCache
+        </Cache>
+        <refreshMode>1</refreshMode>
+        <needLock>true</needLock>
+        <maxThread>300</maxThread>
+        <DBDtaLoader name="PRESENTBOOKINFO_DATALOADER">
+            cn.migu.newportal.cache.cache.dataloader.PresentBooksDataLoader
+        </DBDtaLoader>
+    </item>
+
+    <!-- 赠言缓存 -->
+    <item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+        <name>PRESENTWORDSMEMCAHCE</name>
+        <Cache>
+            cn.migu.newportal.cache.cache.memcache.PresentWordsMemCahce
+        </Cache>
+        <refreshMode>1</refreshMode>
+        <needLock>true</needLock>
+        <maxThread>300</maxThread>
+        <DBDtaLoader name="PRESENTWORDS_DATALOADER">
+            cn.migu.newportal.cache.cache.dataloader.PresentWordsDataLoader
+        </DBDtaLoader>
+    </item>
+
+	<!-- 富文本 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>RICHCONTENTMEMCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.uesserver.UesRichContentMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_RICHCONTENT">
+			cn.migu.newportal.cache.cache.dataloader.uesserver.UesRichContentDataLoader
+		</DBDtaLoader>
+	</item>
+	<!-- 链接列表 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>LINKMEMCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.uesserver.LinkInfoMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>800</maxThread>
+	</item>
+	<!-- 预制页 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>UESPREPAGEMEMCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.uesserver.UesPrePageMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_UESPREPAGEINFO">
+			cn.migu.newportal.cache.cache.dataloader.uesserver.UesPrePageDataLoader
+		</DBDtaLoader>
+	</item>
+	<!-- ues门户参数 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>UESPARAMCONFIGMEMCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.uesserver.UesParamConfigMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_UESPARAMCONFIGINFO">
+			cn.migu.newportal.cache.cache.dataloader.uesserver.UesParamConfigDataLoader
+		</DBDtaLoader>
+	</item>
+	<!-- 专区列表 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>NODEANDCONTENTMEMCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.uesserver.UesNodeAndContentMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+	</item>
+
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>USERPREFERENCE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.GetUserPreferenceMemcache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="GETUSERPREFERENCE_DATALOADER">
+			cn.migu.newportal.cache.cache.dataloader.GetUserPreferenceDataLoader
+		</DBDtaLoader>
+	</item>
+	<!-- 获取书籍排行榜信息 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>BOOKRANKCHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalGetBookRankMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_BOOKRANK">
+			cn.migu.newportal.cache.cache.dataloader.PortalGetBookRankDataLoader
+		</DBDtaLoader>
+	</item>
+	<!-- 排行榜数据 -->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>BOOKRANKCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.PortalBookRankMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_PORTALRANKCACHE">
+			cn.migu.newportal.cache.cache.dataloader.PortalBookRankDataLoader
+		</DBDtaLoader>
+	</item>
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>CURRENTUSERINFOCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.oscache.CurrentUserInfoOSCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>800</maxThread>
+		<DBDtaLoader name="DATALOADER_CURRENTUSERINFO">
+			cn.migu.newportal.cache.cache.dataloader.CurrentUserInfoDataLoader
+		</DBDtaLoader>
+	</item>
+
+	<!--图书黑名单缓存-->
+	<item daoClass="cn.migu.newportal.util.cache.util.RefreshableDAO">
+		<name>BLACKBOOKLISTMEMCACHE</name>
+		<Cache>
+			cn.migu.newportal.cache.cache.memcache.BlackBookListMemCache
+		</Cache>
+		<refreshMode>1</refreshMode>
+		<needLock>true</needLock>
+		<maxThread>300</maxThread>
+		<DBDtaLoader name="DATALOADER_BLACKBOOKLIST">
+			cn.migu.newportal.cache.cache.dataloader.BlackBookListDataloader
+		</DBDtaLoader>
+	</item>
+</items>

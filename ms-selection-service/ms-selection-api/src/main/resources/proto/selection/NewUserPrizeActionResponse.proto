@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message NewUserPrizeActionResponse{
+	 string resultCode = 1;
+     string codeDesc = 2;
+     string resultMsg = 3;
+}
+
+

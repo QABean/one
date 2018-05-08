@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<context:annotation-config />
+
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
+
+	<bean id="serviceManager" class="cn.migu.wheat.service.ServiceManager"
+		init-method="init">
+		<constructor-arg type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+	</bean>
+
+	<!-- 导航圈注册服务 -->
+	<bean id="indexNavInfoImpl"
+		class="cn.migu.newportal.selection.service.selection.IndexNavInfoImpl" />
+	<bean id="ms.selection.indexNavService" class="cn.migu.newportal.selection.service.IndexNavServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.indexNavService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.indexNavService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.indexNavService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+	<!-- 分类推荐 -->
+	<bean id="recommendServiceImpl"
+		class="cn.migu.newportal.selection.service.selection.RecommendInfoImpl"></bean>
+	<bean id="ms.selection.recommendService"
+		class="cn.migu.newportal.selection.service.RecommendServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.recommendService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.recommendService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.recommendService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+	<!-- 活动小标题 -->
+	<bean id="activityFlexLinkServiceImpl"
+		class="cn.migu.newportal.selection.service.selection.ActivityFlexLinkInfoImpl"></bean>
+	<bean id="ms.selection.activityFlexLinkServcie"
+		class="cn.migu.newportal.selection.service.ActivityFlexLinkServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.activityFlexLinkServcie" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.activityFlexLinkServcie" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.activityFlexLinkServcie" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+
+	<!-- add by wulinfeng 20170417 for 多图混排服务 -->
+	<bean id="multplePhotoInfo"
+		class="cn.migu.newportal.selection.service.selection.MultplePhotoInfo"></bean>
+	<bean id="ms.selection.multiplePhotoService"
+		class="cn.migu.newportal.selection.service.MultiplePhotoServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.multiplePhotoService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.multiplePhotoService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.multiplePhotoService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+
+	<!-- add by wulinfeng 20170508 for 内容展示服务 -->
+	<bean id="getBookFeeInfoMethodImpl"
+		class="cn.migu.newportal.selection.service.selection.GetBookFeeInfoMethodImpl"></bean>
+	<bean id="getBookContentInfoMethodImpl"
+		class="cn.migu.newportal.selection.service.selection.GetBookContentInfoMethodImpl"></bean>
+	<bean id="ms.selection.bookContentService"
+		class="cn.migu.newportal.selection.service.BookContentServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.bookContentService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.bookContentService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.bookContentService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+
+	<!-- add by wulinfeng 20170609 for 内容简介服务 -->
+	<bean id="bookContentDesc"
+		class="cn.migu.newportal.selection.service.selection.BookContentDescInfo"></bean>
+	<bean id="ms.selection.bookContentDescService"
+		class="cn.migu.newportal.selection.service.BookContentDescServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.bookContentDescService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.bookContentDescService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.bookContentDescService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+	<!-- end by wulinfeng -->
+
+	<!-- add by hezhl 20170417 for 咪咕猜服务 -->
+	<bean id="getMiguGuessInfoMethodImpl"
+		class="cn.migu.newportal.selection.service.selection.GetMiguGuessInfoMethodImpl"></bean>
+	<bean id="aiRecommendListenMethodImpl"
+		class="cn.migu.newportal.selection.service.selection.AiRecommendListenMethodImpl"></bean>
+
+
+	<!-- 测试发布服务 -->
+	<bean id="testInfoImpl"
+		class="cn.migu.newportal.selection.service.selection.TestInfoImpl"></bean>
+	<bean id="ms.selection.testService" class="cn.migu.newportal.selection.service.TestServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.testService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.testService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.testService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+	<!-- 通用标题栏 -->
+	<bean id="headingInfo"
+		class="cn.migu.newportal.selection.service.selection.HeadingInfo"></bean>
+	<bean id="generalHeadingMethodImpl"
+		class="cn.migu.newportal.selection.service.selection.GetGeneralHeadingMethodImpl"></bean>
+	<bean id="ms.selection.headingService" class="cn.migu.newportal.selection.service.HeadingServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.headingService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.headingService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.headingService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+	<!-- 广告区块 -->
+	<bean id="bannerSwiperInfoImpl"
+		class="cn.migu.newportal.selection.service.selection.BannerSwiperInfoImpl"></bean>
+	<bean id="ms.selection.bannerSwiperService"
+		class="cn.migu.newportal.selection.service.BannerSwiperServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.bannerSwiperService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.bannerSwiperService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.bannerSwiperService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+	<!-- add by hanyafei 20170509 for 横向内容微服务 -->
+	<bean id="horizontalContentInfo"
+		class="cn.migu.newportal.selection.service.selection.HorizontalContentInfoImpl"></bean>
+	<bean id="ms.selection.horizontalContentService"
+		class="cn.migu.newportal.selection.service.HorizontalContentServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.horizontalContentService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.horizontalContentService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.horizontalContentService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+
+	<!-- add by hanyafei 20170605 for 内容链表微服务 -->
+	<bean id="portalBookLinkInfo"
+		class="cn.migu.newportal.selection.service.selection.GetPortalBookLinkMethodImpl"></bean>
+	<bean id="ms.selection.portalBookLinkService"
+		class="cn.migu.newportal.selection.service.PortalBookLinkServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.portalBookLinkService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.portalBookLinkService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.portalBookLinkService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+
+	<!-- 评论列表微服务 -->
+	<bean id="bookCommentInfo"
+		class="cn.migu.newportal.selection.service.selection.BookCommentInfo"></bean>
+	<bean id="ms.selection.bookCommentService"
+		class="cn.migu.newportal.selection.service.BookCommentServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.bookCommentService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.bookCommentService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.bookCommentService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+
+	<!-- 书单信息 -->
+	<bean id="bookSheetImpl"
+		class="cn.migu.newportal.selection.service.selection.BookSheetImpl"></bean>
+	<bean id="ms.selection.bookSheetService"
+		class="cn.migu.newportal.selection.service.BookSheetServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.bookSheetService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.bookSheetService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.bookSheetService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+
+	<!-- 内容关联推荐 -->
+	<bean id="contentRecommendInfo"
+		class="cn.migu.newportal.selection.service.selection.ContentRecommendInfo"></bean>
+
+	<!-- 图书目录 -->
+	<bean id="listenBookCatalogInfo"
+		class="cn.migu.newportal.selection.service.selection.ListenBookCatalogInfo"></bean>
+	<bean id="bookCatalogInfo"
+		class="cn.migu.newportal.selection.service.selection.GetBookCatalogInfoMethodImpl"></bean>
+	<bean id="ms.selection.bookCatalogService"
+		class="cn.migu.newportal.selection.service.BookCatalogServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.bookCatalogService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.bookCatalogService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.bookCatalogService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+
+
+
+	<!-- 点赞 -->
+	<bean id="abetOrOpposePostInfo"
+		class="cn.migu.newportal.selection.service.selection.AbetOrOpposePostInfo"></bean>
+	<bean id="ms.selection.abetOrOpposePostService"
+		class="cn.migu.newportal.selection.service.AbetOrOpposePostServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.abetOrOpposePostService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.abetOrOpposePostService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.abetOrOpposePostService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+
+	<!-- 免费漫画 -->
+	<bean id="freeForCartoonFlowInfo"
+		class="cn.migu.newportal.selection.service.selection.FreeForCartoonFlowInfo"></bean>
+	<bean id="ms.selection.freeForCartoonFlowService"
+		class="cn.migu.newportal.selection.service.FreeForCartoonFlowServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.freeForCartoonFlowService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.freeForCartoonFlowService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.freeForCartoonFlowService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+
+	<!-- 纵向图书列表 -->
+	<bean id="verticalComponentInfo"
+		class="cn.migu.newportal.selection.service.selection.VerticalComponentInfoImpl"></bean>
+	<bean id="ms.selection.VerticalComponentService"
+		class="cn.migu.newportal.selection.service.VerticalComponentServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.VerticalComponentService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.VerticalComponentService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.VerticalComponentService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+	<!-- freeListen -->
+	<bean id="voiceBookInfo"
+		class="cn.migu.newportal.selection.service.selection.VoiceBookInfo"></bean>
+	<bean id="ms.selection.voiceBookService"
+		class="cn.migu.newportal.selection.service.VoiceBookServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.voiceBookService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.voiceBookService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.voiceBookService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+	<!-- ListenVerticalComponent -->
+	<bean id="listenVerticalComponentShowInfoImpl"
+		class="cn.migu.newportal.selection.service.selection.ListenVerticalComponentShowInfoImpl"></bean>
+	<bean id="ms.selection.listenVerticalComponentService"
+		class="cn.migu.newportal.selection.service.ListenVerticalComponentServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.listenVerticalComponentService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.listenVerticalComponentService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.listenVerticalComponentService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+	<!-- RecommendFamous -->
+	<bean id="recommendFamousInfo"
+		class="cn.migu.newportal.selection.service.selection.RecommendFamousMethodImpl"></bean>
+	<bean id="ms.selection.RecommendFamousService"
+		class="cn.migu.newportal.selection.service.RecommendFamousServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.RecommendFamousService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.RecommendFamousService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.RecommendFamousService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+	<!-- ActivityBanner -->
+	<bean id="activityBannerInfo"
+		class="cn.migu.newportal.selection.service.selection.ActivityBannerImpl"></bean>
+	<bean id="ms.selection.ActivityBannerService"
+		class="cn.migu.newportal.selection.service.ActivityBannerServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.ActivityBannerService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.ActivityBannerService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.ActivityBannerService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+
+	<!-- ImageTextMix -->
+	<bean id="componentShowImpl"
+		class="cn.migu.newportal.selection.service.selection.ImageTextMixImpl"></bean>
+	<bean id="ms.selection.ImageTextMix" class="cn.migu.newportal.selection.service.ImageTextMixInfo"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.ImageTextMix" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.ImageTextMix" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.ImageTextMix" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+	<!-- 图书名分类 -->
+	<bean id="bookNameClassificationImpl"
+		class="cn.migu.newportal.selection.service.selection.BookNameClassificationImpl"></bean>
+	<bean id="ms.selection.bookNameClassificationService"
+		class="cn.migu.newportal.selection.service.BookNameClassificationServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.bookNameClassificationService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.bookNameClassificationService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.bookNameClassificationService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+	<!-- 推荐三封面横向 -->
+	<bean id="threeRecommendHorizontalInfo"
+		class="cn.migu.newportal.selection.service.selection.ThreeRecommendHorizontalInfo"></bean>
+	<bean id="ms.selection.threeRecommendHorizontalService"
+		class="cn.migu.newportal.selection.service.ThreeRecommendHorizontalServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.threeRecommendHorizontalService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.threeRecommendHorizontalService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.threeRecommendHorizontalService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+
+	<!-- PollingLinkInfoService -->
+	<bean id="pollingLinkInfoServiceImpl"
+		class="cn.migu.newportal.selection.service.selection.PollingLinkInfoServiceImpl"></bean>
+
+	<!-- 内容链接-抽奖 -->
+	<bean id="exchangeLotteryMethodImpl"
+		class="cn.migu.newportal.selection.service.selection.ExchangeLotteryMethodImpl"></bean>
+	<bean id="ms.selection.raffleService" class="cn.migu.newportal.selection.service.RaffleServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.raffleService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.raffleService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.raffleService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+
+	<!-- 阅读末页推荐文本 -->
+	<bean id="getRecommendContentMethodImpl"
+		class="cn.migu.newportal.selection.service.selection.GetRecommendContentMethodImpl" />
+	<bean id="reserveUpdateActionImpl"
+		class="cn.migu.newportal.selection.service.selection.ReserveUpdateActionMethodImpl" />
+
+	<!--<bean id="ms.selection.recommendContentService" class="cn.migu.newportal.selection.service.RecommendContentServiceImpl" 
+		init-method="init" > <property name="serviceName" value="ms.selection.recommendContentService" 
+		/> <property name="version" value="${ms.default.version}" /> </bean> <bean 
+		class="cn.migu.wheat.service.ServiceProvider" init-method="init"> <constructor-arg 
+		ref="serviceManager" /> <property name="serviceName" value="ms.selection.recommendContentService" 
+		/> <property name="version" value="${ms.default.version}" /> <property name="serviceImpl" 
+		ref="ms.selection.recommendContentService" /> <property name="deferral" value="${ms.deferral}" 
+		/> <property name="publish" value="${ms.publish}" /> </bean> -->
+
+	<!-- 综合首页定向免费 -->
+	<bean id="orientationFreeBookMethodImpl"
+		class="cn.migu.newportal.selection.service.selection.OrientationFreeBookMethodImpl" />
+	<!-- 偏好排序展示 -->
+	<bean id="preferenceLinksMethodImpl"
+		class="cn.migu.newportal.selection.service.selection.PreferenceLinksMethodImpl" />
+	<!--新用户登陆新礼 -->
+	<bean id="getNewUserLoginPrize"
+		class="cn.migu.newportal.selection.service.selection.GetNewUserLoginPrizeMethodImpl"></bean>
+	<!-- 领奖action -->
+	<bean id="drawNewUserPrizeAction"
+		class="cn.migu.newportal.selection.service.selection.DrawNewUserPrizeActionMethodImpl"></bean>
+	<!-- 排行三封面 -->
+	<bean id="rankTripleBooksMethodImpl"
+		class="cn.migu.newportal.selection.service.selection.RankTripleBooksMethodImpl" />
+	<!-- 智能广告 -->
+	<bean id="intelliAdMethodImpl"
+		class="cn.migu.newportal.selection.service.selection.IntelliAdMethodImpl" />
+	<!-- 私人推荐 -->
+	<bean id="getPersonalRecommendMethodImpl"
+		class="cn.migu.newportal.selection.service.selection.GetPersonalRecommendMethodImpl" />
+	<!-- 偏好修改入口 -->
+	<bean id="modifyPreferenceEntranceMethodImpl"
+		class="cn.migu.newportal.selection.service.selection.ModifyPreferenceEntranceMethodImpl" />
+	<!-- 多图展示-免费听书 -->
+	<bean id="multiPicFreeListenImpl"
+		class="cn.migu.newportal.selection.service.selection.MultiPicFreeListenImpl" />
+
+	<!-- 投票 -->
+	<bean id="voteActionInfo"
+		class="cn.migu.newportal.selection.service.selection.VoteActionInfoImpl"></bean>
+	<bean id="voteToFreeInfo"
+		class="cn.migu.newportal.selection.service.selection.VoteToFreeInfoImpl"></bean>
+	<!-- 一级平台广告 -->
+	<bean id="apiLevelOneAd"
+		class="cn.migu.newportal.selection.service.selection.ApiLevelOneAdMethodImpl"></bean>
+	<bean id="advertRecord"
+		class="cn.migu.newportal.selection.service.selection.AdvertRecordMethodImpl"></bean>
+	<!-- 猜你喜欢 -->
+	<bean id="guessLikeListMethodImpl"	class="cn.migu.newportal.selection.service.selection.GuessLikeListMethodImpl" />
+	<bean id="ms.selection.selectionService"
+		class="cn.migu.newportal.selection.service.SelectionServiceImpl"
+		init-method="init">
+		<property name="serviceName" value="ms.selection.selectionService" />
+		<property name="version" value="${ms.default.version}" />
+	</bean>
+	<bean class="cn.migu.wheat.service.ServiceProvider" init-method="init">
+		<constructor-arg ref="serviceManager" />
+		<property name="serviceName" value="ms.selection.selectionService" />
+		<property name="version" value="${ms.default.version}" />
+		<property name="serviceImpl" ref="ms.selection.selectionService" />
+		<property name="deferral" value="${ms.deferral}" />
+		<property name="publish" value="${ms.publish}" />
+	</bean>
+</beans>

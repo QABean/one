@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option java_package="cn.migu.selection.proto.base";
+
+message BookSheetInfoResponse{
+	string pluginCode = 1;
+	string status = 2;
+	string isvisable = 3;
+	BookSheetInfoData data = 4;
+	string messageDesc = 5;
+}
+message BookSheetInfoData{
+	string isShowLine = 1;
+	string sheetTitle = 2;
+	string totalSheet = 3;
+	string sheetCover = 4;
+	string sheetName = 5;
+	string sheetDesc = 6;
+	string sheetAuthor = 7;
+	string sheetNum = 8;
+	string sheetCollectNum = 9;
+	string moreLinkDesc = 10;
+	string moreLink = 11;
+	map<string,string> ctag = 12;
+	string  isMarginTop=13;
+	string  isMarginBottom=14;
+	string  sheetUrl=15;
+	repeated Booksss booksss = 16;
+}
+message Booksss{
+	 string bookShowName = 1; 
+	 string bookCoverLogo = 2; 
+	 string bookDetailUrl = 3; 
+	 string bookCategory = 4;
+	 string authorName = 5;
+	 string bookShortDesc = 6; 
+	 string status = 7;
+	 string contentType = 8;
+	 string cornerShowType = 9;
+}

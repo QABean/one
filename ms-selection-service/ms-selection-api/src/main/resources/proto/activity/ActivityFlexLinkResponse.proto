@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message ActivityFlexLinkResponse {
+	
+	string pluginCode=1;
+	
+	string status=2;
+	
+	string isvisable=3;
+	
+	FlexLinkData data=4;
+	
+	string messageDesc=5;
+	
+	
+	
+	
+	
+
+}
+message FlexLinkData{
+
+	string totalNum=1;//图片总数量
+	
+	string isShowLine=2;//是否显示下划线
+	
+	string picUrl=3;//图片地址
+	
+	repeated Links links=4;//跳转url
+	
+	map<string, string> ctag = 5;
+	
+	string  isMarginTop=6;
+	
+	string  isMarginBottom=7;
+}
+
+message Links{
+
+	string url=1;//跳转url
+	
+	
+
+}

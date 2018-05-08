@@ -1,0 +1,12 @@
+syntax = "proto3";
+option java_package="cn.migu.selection.proto.base";
+
+message ComponentRequest{
+	//请求头参数集合
+	map<string, string> reqHeaderMap = 1;
+	//请求参数集合
+	map<string, string> paramMap = 2;
+	//组件json数据
+	string comJsonData = 3;
+
+}

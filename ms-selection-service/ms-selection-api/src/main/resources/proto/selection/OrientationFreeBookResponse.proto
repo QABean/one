@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message OrientationFreeBookResponse {
+	
+	string pluginCode=1;
+	
+	string status=2;
+	
+	string isvisable=3;
+	
+	OrientationFreeBookData data=4;
+	
+	string messageDesc=5;
+
+
+}
+message OrientationFreeBookData{
+
+	//string isAjax = 1;  // 组件是否包含ajax请求。0:不包含;1:包含
+	 string isMarginTop = 1;
+	 string isMarginBottom = 2;
+	 string isPaddingTop = 3;
+	 string isShowLine = 4;
+	
+	string  title = 5;//标题
+	string  desc = 6;//描述
+	string  msisdn = 7;
+	
+}

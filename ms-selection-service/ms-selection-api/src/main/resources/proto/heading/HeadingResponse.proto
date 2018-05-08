@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message HeadingResponse{
+	 string pluginCode = 1;
+     string status = 2;
+     string isvisable = 3;
+     HeadingData data = 4;
+     string messageDesc = 5;
+}
+
+message HeadingData{
+	string isShowLine = 1; // 是否展示下划线：0 否 ，1 是
+	string style = 2; // 样式
+	string isMember = 3; // 是否会员： 0 否，1 是
+	string title = 4; // 标题
+	string more = 5; // 更多
+	string moreUrl = 6; // 更多url
+	string titleDesc = 7; // 描述
+	string startTime = 8; // 起始时间
+	string endTime = 9; // 截止时间
+	string  isMarginTop=10;
+	string  isMarginBottom=11;
+}

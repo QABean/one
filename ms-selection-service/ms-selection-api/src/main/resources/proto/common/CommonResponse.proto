@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message CommonResponse{
+	string status = 1; //响应码，200为成功，其他为失败
+	string message = 2; //响应码描述，一般为内部错误描述语，仅供参考调试
+}

@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message PortalBookLinkResponse{
+	string pluginCode = 1;
+	string status = 2;
+	string isvisable = 3;
+	PortalBookLinkData data = 4;
+	string messageDesc = 5;
+}
+
+message PortalBookLinkData{
+	string isUgc = 1;//是否是ugc图书
+	string isSupportDownload = 2;//是否支持下载
+	string monthticUrl = 3;//投月票链接
+	string rewardUrl = 4;//打赏链接
+	string firstChapterUrl = 5;//第一章下载地址
+	int32 downloadNum = 6;//下载数量
+	string bookid = 7;//图书bid值
+	string contentType = 8;//图书类型
+	string bookName = 9;//图书名
+	string firstChapterId = 10;//图书第一章ID
+	string firstChapterName = 11;//图书第一章名称
+	string chargeMode = 12;//图书资费类型
+	string bookCover = 13;//图书封面
+	string authorName = 14;//作者名称
+	string bookLevel = 15;//图书等级
+	string isSerial = 16;//图书是否连载
+	string isPrePackFinished = 17;//图书预打包状态
+	string bookFeeFasciculeDesc = 18;//图书分册描述语
+	string bookShareTitle = 19;//图书分享图标
+	string bookShareDesc =20;//图书分享描述
+	string isShowLine = 21;//是否展示下划线
+	map<string, string> ctag = 22;
+	string isMarginTop=23;
+	string isMarginBottom=24;
+	bool raffleBinded = 25;//是否分享送书券
+	string ajaxRaffle = 26;//抽奖接口
+	string  isPaddingTop = 27;
+}

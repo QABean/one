@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "common/ComponentRequest.proto";
+import "voiceBook/VoiceBookResponse.proto";
+
+option java_package="cn.migu.selection.proto.VoiceBookService";
+option java_outer_classname = "_VoiceBookService";
+option java_generic_services = true;
+
+service VoiceBookService{
+
+  rpc VoiceBookService (ComponentRequest) returns (VoiceBookResponse);
+
+}

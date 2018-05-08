@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message  VoiceBookResponse {
+	 string pluginCode = 1;
+     string status = 2;
+     string isvisable = 3;
+     BooksData data = 4;
+     string messageDesc = 5;
+
+}
+
+message  BooksData {
+	 string isShowLine = 1;
+     string showStyleType = 2;
+     repeated VoiceBook books = 3;
+     string isMarginTop=4;
+	 string isMarginBottom=5;
+	 string isPaddingTop=6;
+}
+
+message VoiceBook{
+	 string bookShowName = 1; ///图书展示名称
+	 string bookDesc = 2; // 图书简介
+	 string bookCoverLogo = 3; // 图书封面
+	 string bookDetailUrl = 4; // 图书链接
+	 string chargeMode = 5; // 图书计费方式
+	 string bookLevel = 6; // 推荐图书状态
+	 
+	 string bookClickDesc = 7;//图书点击量
+	 string chapterId = 8;//章节id
+	 string bookId = 9;//内容id
+	 string cornerShowType = 10;//角标展示
+	 string speakerName  = 11;//主播名称
+	 string contentType = 12;//内容类型
+	 string offset = 13;//内容相对章首的偏移量
+	 string recentlyTime = 14;//最近的阅读时间
+	 string isCompare = 15;//是否需要根据时间戳进行比较
+	 string authorName = 16;//作家名
+	 string chapterName = 17;//章节名
+	 string isDownload = 18;//获取图书下载属性
+	 string itemType = 19;//图书类型
+}

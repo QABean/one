@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "common/ComponentRequest.proto";
+import "activitybanner/ActivityBannerResponse.proto";
+option java_package = "cn.migu.selection.proto.ActivityBannerService";
+option java_outer_classname = "_ActivityBannerService";
+option java_generic_services = true;
+
+service  ActivityBannerService{
+
+rpc getActivityBannerInfo(ComponentRequest) returns (ActivityBannerResponse);
+}

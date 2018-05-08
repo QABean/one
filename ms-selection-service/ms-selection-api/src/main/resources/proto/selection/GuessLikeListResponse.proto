@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message  GuessLikeListResponse {
+	//组件编号
+	string pluginCode=1;
+	//状态码
+	string status=2;
+	//是否可见
+	string isvisable=3;
+	//状态描述
+	string messageDesc=4;
+
+	GuessLikeListData data=5;
+
+}
+message GuessLikeListData{
+    //上边距
+	string isMarginTop = 1;
+	//下边距
+	string isMarginBottom = 2;
+	//是否显示内边距
+	string isPaddingTop = 3;
+	//是否展示底部横线
+	string isShowLine = 4;
+	//文本标题
+  string title = 5;
+  //展示样式:默认:3;枚举值:1:一行书名+读过人数;2:一行书名+作者;3:两行书名;
+  string showType = 6;
+  //1:按理由;2:按名家;3:BI实时接口
+  string dataFrom = 7;
+  //分页大小
+  int32 pageSize = 8;
+  //用户阅读号
+  string msisdn = 9;
+  //用户关联手机号
+  string relatedMobile = 10;
+  //BI推荐所基于的图书id，数据来源为BI实时接口时有效
+  string bid = 11;
+	repeated GuessLikeListBook books = 12;
+}
+message GuessLikeListBook{
+	string bookName = 1;
+	string authorName = 2;
+	string bookCover = 3;
+	string bookUrl = 4;
+}

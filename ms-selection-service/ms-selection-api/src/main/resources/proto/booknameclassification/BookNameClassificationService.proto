@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "common/ComponentRequest.proto";
+import "booknameclassification/BookNameClassificationResponse.proto";
+
+option java_package = "cn.migu.selection.proto.booknameclassificationservice";
+option java_outer_classname = "_BookNameClassificationService";
+option java_generic_services = true;
+
+service BookNameClassificationService{
+rpc BookNameClassificationForLink (ComponentRequest) returns (BookNameClassificationResponse);
+}

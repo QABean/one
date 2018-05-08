@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="OFF">
+	<Properties>
+		<Property name="appname">ms-selection-war</Property>
+		<!--appdir 需根据环境来配置  ，这里默认为自动化环境配置-->
+		<Property name="appdir">/home/naps/${appname}</Property>
+		<Property name="logpath">${appdir}/logs</Property>
+	</Properties>
+
+	<Appenders>
+		<console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss}] %-5p %c{1}:%L - %m%n" />
+		</console>
+
+		<RollingFile name="info-log" fileName="${logpath}/info/info.log"
+			filePattern="${logpath}/info/$${date:yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log">
+			<Filters>
+				<ThresholdFilter level="INFO" />
+				<ThresholdFilter level="WARN" onMatch="DENY"
+					onMismatch="NEUTRAL" />
+			</Filters>
+			<PatternLayout
+				pattern="[%d{yyyy-MM-dd HH:mm:ss:SSS}] - [%5p] %F %M %L - %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="10 MB" />
+			</Policies>
+		</RollingFile>
+
+		<!-- 记录warn的日志输出到文件，当文件大小达到10M时，新建文件输出日志 -->
+		<RollingFile name="warn-log" fileName="${logpath}/warn/warn.log"
+			filePattern="${logpath}/warn/$${date:yyyy-MM}/warn-%d{yyyy-MM-dd}-%i.log">
+			<Filters>
+				<ThresholdFilter level="WARN" />
+				<ThresholdFilter level="ERROR" onMatch="DENY"
+					onMismatch="NEUTRAL" />
+			</Filters>
+			<PatternLayout
+				pattern="[%d{yyyy-MM-dd HH:mm:ss:SSS}] - [%5p] %F %M %L - %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="10 MB" />
+			</Policies>
+		</RollingFile>
+
+		<!-- 记录error的日志输出到文件，当文件大小达到10M时，新建文件输出日志 -->
+		<RollingFile name="error-log" fileName="${logpath}/error/error.log"
+			filePattern="${logpath}/error/$${date:yyyy-MM}/error-%d{yyyy-MM-dd}-%i.log">
+			<ThresholdFilter level="ERROR" />
+			<PatternLayout
+				pattern="[%d{yyyy-MM-dd HH:mm:ss:SSS}] - [%5p] %F %M %L - %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="10 MB" />
+			</Policies>
+		</RollingFile>
+		<RollingFile name="app-log" fileName="${logpath}/${appname}/${appname}.log"
+			filePattern="${logpath}/${appname}-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%level] [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingFile>
+		<RollingFile name="framework-log" fileName="${logpath}/${appname}/framework.log"
+			filePattern="${logpath}/framework-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%level] [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingFile>
+		<RollingFile name="etcd-log" fileName="${logpath}/etcd/etcd.log"
+			filePattern="${logpath}/etcd-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%level] [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingFile>
+		<RollingFile name="millet-log" fileName="${logpath}/etcd/millet.log"
+			filePattern="${logpath}/millet-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%level] [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingFile>
+		<RollingFile name="httpClient-log" fileName="${logpath}/etcd/httpclient.log"
+			filePattern="${logpath}/httpclient-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%level] [%t] %c{1} - %msg%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingFile>
+	</Appenders>
+
+	<loggers>
+		<!-- 过滤掉spring无用的debug信息 -->
+		<logger name="org.springframework" level="ERROR" additivity="false">
+			<appender-ref ref="app-log" />
+		</logger>
+
+		<!-- memcache无用日志 -->
+		<logger name="com.google.code.yanf4j" level="ERROR" additivity="false">
+			<appender-ref ref="app-log" />
+		</logger>
+
+		<logger name="net.rubyeye.xmemcached" level="ERROR" additivity="false">
+			<appender-ref ref="app-log" />
+		</logger>
+
+		<logger name="mousio.etcd4j" level="ERROR" additivity="false">
+			<appender-ref ref="app-log" />
+		</logger>
+
+		<logger name="org.asynchttpclient" level="ERROR" additivity="false">
+			<appender-ref ref="httpClient-log" />
+		</logger>
+
+		<Logger name="cn.migu" level="debug" additivity="false">
+			<appender-ref ref="app-log" level="debug" />
+			<appender-ref ref="Console" level="debug" />
+			<appender-ref ref="info-log" level="info" />
+			<appender-ref ref="warn-log" level="warn" />
+			<appender-ref ref="error-log" level="error" />
+		</Logger>
+
+		<!-- etcd log start -->
+		<Logger name="org.springframework" level="error" additivity="false">
+			<appender-ref ref="framework-log" level="info" />
+		</Logger>
+		<Logger name="mousio.etcd4j" level="error" additivity="false">
+			<appender-ref ref="etcd-log" level="info" />
+		</Logger>
+		<Logger name="cn.migu.millet" level="error" additivity="false">
+			<appender-ref ref="millet-log" level="debug" />
+		</Logger>
+		<logger name="cn.migu.gaia.schedule" level="ERROR" additivity="false">
+           <appender-ref ref="error-log" />
+      	</logger>
+		<!-- etcd log end -->
+		<root level="debug">
+			<appender-ref ref="app-log" level="debug" />
+			<appender-ref ref="framework-log" level="error" />
+			<appender-ref ref="error-log" level="error" />
+			<appender-ref ref="Console" />
+			<appender-ref ref="app-log" />
+		</root>
+	</loggers>
+</configuration>

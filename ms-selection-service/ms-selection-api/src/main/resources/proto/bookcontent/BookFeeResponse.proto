@@ -1,0 +1,22 @@
+syntax = "proto3";
+option java_package="cn.migu.selection.proto.base";
+
+message BookFeeResponse{
+	string pluginCode = 1;
+    string status = 2;
+    string isvisable = 3;
+    string messageDesc = 4;
+    BookFeeData data=5; 
+}
+
+message BookFeeData{
+	string isShowLine = 1;
+	string isMarginTop = 2;
+    string isMarginBottom = 3;
+	string bookPrice = 4;
+    string bookRealPrice = 5;
+    string bookPriceDesc = 6;
+    string priceDescStyle = 7;
+    map<string, string> ctag = 8;
+    string  isPaddingTop = 9;
+}

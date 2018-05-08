@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message ModifyPreferenceEntranceResponse{
+	string pluginCode = 1;
+	string status = 2;
+	string isvisable = 3;
+	string messageDesc=4;
+	ModifyPreferenceEntranceData data = 5;
+	
+}
+
+message ModifyPreferenceEntranceData {
+	string isShowLine = 1;//展示底部横线
+	string isMarginTop = 2;//上边框
+	string isMarginBottom = 3;//下边框
+	string isPaddingTop = 4;////是否显示内边距
+	map<string, string> ctag = 5;//ajax请求消息体体
+	string picUrl = 6;//背景图片
+}

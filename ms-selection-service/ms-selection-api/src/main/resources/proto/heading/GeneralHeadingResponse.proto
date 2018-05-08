@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message GeneralHeadingResponse{
+	 string pluginCode = 1;
+     string status = 2;
+     string isvisable = 3;
+     GeneralHeading data = 4;
+     string messageDesc = 5;
+}
+
+message GeneralHeading{
+	//标题
+	string title = 1;
+	//是否是会员 1:是  0：否
+	string huiyuan = 2;
+	//标题标签 1：无 ,2：黄色框 ,3自签书特有
+	string label = 3;
+	//倒计时类型 1：当天,2：手动，3：无
+	string countType = 4;
+	//标题标签文本
+	string content =  5;
+	//小文本内容
+	string textmin = 6;
+	//标题后缀类型
+	string suffix = 7;
+	//当前时间
+	string nowTime = 8;
+	//手动开始时间
+	string startTime = 9;
+	//手动结束时间
+	string endTime = 10;
+	//后缀链接描述
+	string desc = 11;
+	//标题后缀链接地址
+	string url = 12;
+	//是否显示上划线 0:不显示;1:显示（上边距）
+	string isMarginTop = 13;
+	//是否显示底部划线0:不显示;1:显示
+	string isMarginBottom = 14;
+	//是否显示上边框 0:不显示；1:显示
+	string isPaddingTop = 15;
+	//是否展示下划线 1：展示 0：不展示
+	string isShowLine = 16;
+	//倒计时未开始时是否展示 ：0 不提示 1 提示
+	string isShowReminder = 17;
+}

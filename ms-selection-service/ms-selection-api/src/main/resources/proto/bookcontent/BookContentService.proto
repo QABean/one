@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "common/ComponentRequest.proto";
+import "bookcontent/BookContentResponse.proto";
+import "bookcontent/BookFeeResponse.proto";
+
+option java_package="cn.migu.selection.proto.bookcontentservice";
+option java_outer_classname="_BookContentService";
+option java_generic_services=true;
+
+service BookContentService {
+	rpc getBookContentInfo (ComponentRequest) returns (BookContentResponse);
+	rpc getBookFeeInfo (ComponentRequest) returns (BookFeeResponse);
+}

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd ">
+	<!-- 导航圈 -->
+	<bean id="ms.selection.indexNavService.consumer" class="cn.migu.newportal.pg.etcd.consumer.IndexNavConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+
+	<!-- add by wulinfeng 20170420 for 图文混排 -->
+	<bean id="ms.selection.multiplePhotoService.consumer"
+		class="cn.migu.newportal.pg.etcd.consumer.MultiplePhotoConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+	<!-- BI私人推荐 -->
+	<!-- <bean id="ms.selection.personalRecommendService.consumer"
+		class="cn.migu.newportal.pg.etcd.consumer.PersonalRecommendConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean> -->
+
+	<!-- 分类推荐 -->
+	<bean id="ms.selection.recommendService.consumer" class="cn.migu.newportal.pg.etcd.consumer.RecommendConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+
+	<!-- 活动小标题 -->
+	<bean id="ms.selection.activityFlexLinkServcie.consumer"
+		class="cn.migu.newportal.pg.etcd.consumer.ActivityFlexLinkConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+
+	<!-- 通用标题栏 -->
+	<bean id="ms.selection.headingService.consumer"
+		class="cn.migu.newportal.pg.etcd.consumer.HeadingServiceConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+
+	<!-- 横向内容列表 -->
+	<bean id="ms.selection.horizontalContentService.consumer"
+		class="cn.migu.newportal.pg.etcd.consumer.HorizontalContentConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+
+	<!-- 广告区块 -->
+	<bean id="ms.selection.bannerSwiperService.consumer" class="cn.migu.newportal.pg.etcd.consumer.BannerSwiperConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+
+	<!-- 图书评论 -->
+	<bean id="ms.selection.bookCommentService.consumer" class="cn.migu.newportal.pg.etcd.consumer.BookCommentConsumer"
+		init-method="init">
+		<constructor-arg type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+
+	<!-- 内容展示 -->
+	<bean id="ms.selection.bookContentService.consumer" class="cn.migu.newportal.pg.etcd.consumer.BookContentConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+
+	<!-- 内容简介 -->
+	<bean id="ms.selection.bookContentDescService.consumer"
+		class="cn.migu.newportal.pg.etcd.consumer.BookContentDescConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+
+	<!-- 内容链接 -->
+	<bean id="ms.selection.portalBookLinkService.consumer"
+		class="cn.migu.newportal.pg.etcd.consumer.PortalBookLinkConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+
+	<!-- 图书目录 -->
+	<bean id="ms.selection.bookCatalogService.consumer" class="cn.migu.newportal.pg.etcd.consumer.BookCatalogConsumer"
+		init-method="init">
+	<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+
+
+	<!-- 猜你喜欢 -->
+	<bean id="ms.selection.userLoveService.consumer" class="cn.migu.newportal.pg.etcd.consumer.UserLoveConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+
+	<!-- 书单信息 -->
+	<bean id="ms.selection.bookSheetService.consumer"
+		class="cn.migu.newportal.pg.etcd.consumer.BookSheetInfoConsumer"
+		init-method="init">
+	<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+
+	<!-- 点赞 -->
+	<bean id="ms.selection.abetOrOpposePostService.consumer"
+		class="cn.migu.newportal.pg.etcd.consumer.AbetOrOpposePostConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+
+	<!-- 免费漫画瀑布流 -->
+	<bean id="ms.selection.freeForCartoonFlowService.consumer"
+		class="cn.migu.newportal.pg.etcd.consumer.FreeForCartoonServiceConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+	<!-- 图书信息 -->
+	<bean id="ms.selection.VerticalComponentService.consumer"
+		class="cn.migu.newportal.pg.etcd.consumer.VerticalComponentConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+	<!-- freeListenBook -->
+	<bean id="ms.selection.voiceBookService.consumer" class="cn.migu.newportal.pg.etcd.consumer.VoiceBookConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+	<!-- 名家推介 -->
+	<bean id="ms.selection.RecommendFamousService.consumer"
+		class="cn.migu.newportal.pg.etcd.consumer.RecommendFamousConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+	<!-- 活动小标题 -->
+	<bean id="ms.selection.ActivityBannerService.consumer"
+		class="cn.migu.newportal.pg.etcd.consumer.ActivityBannerConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+	<!-- ComponentShowService -->
+	<bean id="ms.selection.ImageTextMix.consumer"
+		class="cn.migu.newportal.pg.etcd.consumer.ComponentShowConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+
+	<!-- listen vertical -->
+	<bean id="ms.selection.listenVerticalComponentService.consumer"
+		class="cn.migu.newportal.pg.etcd.consumer.ListenVerticalComponentConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+
+	<!-- 图书名分类 -->
+	<bean id="ms.selection.bookNameClassificationService.consumer"
+		class="cn.migu.newportal.pg.etcd.consumer.BookNameClassificationConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+	<!-- 推荐三封面横向列表 -->
+	<bean id="ms.selection.threeRecommendHorizontalService.consumer"
+		class="cn.migu.newportal.pg.etcd.consumer.ThreeRecommendHorizontalConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+	<!-- 内容链接-抽奖 -->
+	<bean id="ms.selection.raffleService.consumer" class="cn.migu.newportal.pg.etcd.consumer.RaffleServiceConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+	<!-- 阅读末页推荐文本 -->
+	<!--<bean id="ms.selection.recommendContentService.consumer" class="cn.migu.newportal.pg.etcd.consumer.RecommendContentConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>-->
+	
+	
+	<!-- 首页新增组件 -->
+	<bean id="ms.selection.selectionService.consumer"
+		class="cn.migu.newportal.pg.etcd.consumer.SelectionConsumer"
+		init-method="init">
+		<constructor-arg index="0" type="cn.migu.millet.MilletContext"
+			ref="milletContext" />
+		<constructor-arg index="1" value="${ms.default.version}" />
+	</bean>
+</beans>

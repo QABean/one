@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message RecommendResponse {
+	
+	 string pluginCode=1;
+	 string status=2;
+	 string isvisable=3;
+	 string isShowLine=4; //是否显示下划线 0 不显示   1 显示
+	 Recommend data=5; 
+	 string messageDesc=6;
+	 
+
+}
+
+message Recommend{
+
+	repeated RecommendData   buttons=1;
+	map<string, string> ctag = 2;
+	string isMarginTop=3;
+	string isMarginBottom=4;
+
+}
+
+message RecommendData{
+
+	string name=1;
+	
+	string url=2;
+
+}

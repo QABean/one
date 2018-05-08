@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd 
+      ">
+     <context:annotation-config />
+	 <context:component-scan base-package="cn.migu.newportal.cache" />
+
+	<bean id="PropertyConfig" class="cn.migu.newportal.cache.util.PropertiesConfig">
+		<property name="locations">
+			<list>
+				<value>classpath:task.properties</value>
+				<value>classpath:sysconfig.properties</value>
+				<value>classpath:global.properties</value>
+				<value>classpath:build.properties</value>
+			</list>
+		</property>
+		<property name="fileEncoding">
+			<value>UTF-8</value>
+		</property>
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+	</bean>
+
+	<bean id="envConfig" class="cn.migu.millet.EnvConfig">
+		<constructor-arg type="java.lang.String" value="${app.name}" />
+		<constructor-arg type="java.lang.String" value="${app.env}" />
+		<constructor-arg type="java.lang.String" value="${hostname}" />
+		<property name="hostname" value="${hostname}" />
+		<property name="address" value="${host.addr}" />
+		<property name="exposeHost" value="${expose.host:}" />
+        <property name="exposePort" value="${expose.port:8080}" />
+		<property name="buildNumber" value="${build.number}" />
+        <property name="buildBranch" value="${build.branch}" />
+        <property name="buildTime" value="${build.time}" />
+		<property name="deployGroup" value="${deploy.group:default}" />
+		<property name="configGroup" value="${config.group:default}" />
+		<property name="extraGroups">
+			<bean class="org.springframework.util.StringUtils" factory-method="commaDelimitedListToStringArray">
+				<constructor-arg type="java.lang.String" value="${app.groups:}" />
+			</bean>
+		</property>
+	</bean>
+	<bean
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="staticMethod" value="cn.migu.millet.CurrentEnv.init" />
+		<property name="arguments">
+			<list>
+				<ref bean="envConfig" />
+			</list>
+		</property>
+	</bean>
+	<bean id="backend" class="cn.migu.millet.backend.EtcdBackend" init-method="init">
+		<property name="servers">
+			<bean class="org.springframework.util.StringUtils" factory-method="commaDelimitedListToSet">
+				<constructor-arg type="java.lang.String" value="${etcd.servers}" />
+			</bean>
+		</property>
+		<property name="username" value="${etcd.username}" />
+		<property name="password" value="${etcd.password}" />
+	</bean>
+
+	<bean id="milletContext" class="cn.migu.millet.MilletContext" init-method="init">
+		<constructor-arg ref="backend" />
+		<!-- <property name="microServicePort" value="${microServicePort}" />
+		<property name="rpcServicePort" value="${rpcServicePort}" /> -->
+		<property name="config" ref="envConfig" />
+	</bean>
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="staticMethod" value="cn.migu.millet.MilletContext.setDefault" />
+		<property name="arguments">
+			<list>
+				<ref bean="milletContext" />
+			</list>
+		</property>
+	</bean>
+	<bean
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="staticMethod"
+			value="cn.migu.millet.cachecenter.ServiceDiscovery.setContext" />
+		<property name="arguments">
+			<list>
+				<ref bean="milletContext" />
+			</list>
+		</property>
+	</bean>
+	<bean id="uesServiceEngine" class="cn.migu.newportal.selection.engine.UESServiceEngine"
+		init-method="init">
+	</bean>
+
+	<!-- 引入缓存公共jar包ms-cache.jar-->
+	<bean id="getSpringContext" class=" cn.migu.newportal.cache.util.GetSpringContext"></bean> 
+	<import resource="spring-mvc.xml" />
+	<import resource="classpath*:*_consumer.xml" />
+	<import resource="microservice.xml" />
+	<import resource="application.xml" />
+	<import resource="tracing.xml" />
+	<import resource="manager.xml" />	
+</beans>

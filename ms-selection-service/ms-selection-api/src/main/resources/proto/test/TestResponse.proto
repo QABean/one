@@ -1,0 +1,9 @@
+syntax = "proto3";
+option java_package="cn.migu.selection.proto.base";
+
+message TestResponse {
+	map<string,string> rspHeaderMap = 1;
+	string jsonObj = 2;
+}
+
+

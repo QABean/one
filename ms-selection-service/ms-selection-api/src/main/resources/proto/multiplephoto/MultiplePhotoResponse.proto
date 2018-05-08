@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message MultiplePhotoResponse{
+     string pluginCode = 1;
+     string status = 2;
+     string isvisable = 3;
+     Data data = 4;
+     string messageDesc = 5;
+    
+}
+
+message Data{
+	 int32 totalNum = 1;  // 本页总图书数目
+     string isShowLine = 2; // 重磅推荐图书
+     repeated Books books = 3; // 其他推荐图书
+     map<string, string> ctag = 4;
+     string isMarginTop=5;
+	 string isMarginBottom=6;
+}
+
+message Books{
+	 string bookName = 1; // 推荐图书名
+	 string authorName = 2; // 推荐图书作者
+	 string bookDesc = 3; // 推荐图书描述
+	 string bookCoverLogo = 4; // 图书封面
+	 string bookUrl = 5; // 推荐图书链接
+	 string status = 6; // 推荐图书状态
+	 
+	 string bookDetailUrl = 7;
+	 string chargeMode = 8;
+	 string bookLevel = 9;
+	 string bookClickDesc = 10;
+	 string chapterId = 11;
+	 string bookId = 12;
+	 string cornerShowType = 13;
+	 string speakerName = 14;
+	 string contentType = 15;
+	 string offset = 16;
+	 string recentlyTime = 17;
+	 string isCompare = 18;
+	 string chapterName = 19;
+	 string isDownload = 20;
+	 string itemType = 21;
+	 string bookShowName = 22;
+}

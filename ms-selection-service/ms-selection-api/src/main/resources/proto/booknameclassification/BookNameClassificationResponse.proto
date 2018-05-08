@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message BookNameClassificationResponse{
+     string pluginCode = 1; //组件编号
+     string status = 2;		//状态码
+     string isvisable = 3;	//数据是否显示
+     CommonData data = 4;			//响应数据
+     string messageDesc = 5; //响应消息描述
+}
+
+message CommonData{
+	string isMarginTop = 1;		//是否显示上划线 0:不显示;1:显示
+	string isMarginBottom = 2;	//是否显示底部划线划线 0:不显示;1:显示
+	string isPaddingTop = 3;	//是否显示上边距 0:不显示；1:显示
+	string isShowLine = 4;		//是否展示下划线：1:展示;0:不展示,默认0
+	repeated CommonLink links = 5;	//图书名分类集合
+	map<string, string> ctag = 6;	//请求参数
+}
+
+message CommonLink{
+	string linkDesc = 1;	//显示名称
+	string linkUrl = 2;		//链接地址
+}

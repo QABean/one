@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message PreferenceLinksResponse {
+	
+	string pluginCode=1;
+	
+	string status=2;
+	
+	string isvisable=3;
+	
+	PreferenceLinksData data=4;
+	
+	string messageDesc=5;
+
+
+}
+message PreferenceLinksData{
+
+	string isAjax = 1;  // 组件是否包含ajax请求。0:不包含;1:包含
+	 string isMarginTop = 2;
+	 string isMarginBottom = 3;
+	 string isPaddingTop = 4;
+	 string isShowLine = 5;
+	
+	string  rule = 6;//排序规则，1:按偏好排列，2:按偏好展示
+	string  prefers = 7;//已选偏好枚举，逗号分隔，范围1、2、3、8
+	string  nanUrl = 8;//男生页
+	string  nvUrl = 9;//女生页
+	string  cbUrl = 10;//出版页
+	string  cyUrl = 11;//二次元
+	
+	
+}

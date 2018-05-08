@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "common/ComponentRequest.proto";
+import "abetoropposepost/AbetOrOpposePostResponse.proto";
+
+option java_package="cn.migu.selection.proto.abetoropposepostservice";
+option java_outer_classname="_AbetOrOpposePostService";
+option java_generic_services=true;
+
+service AbetOrOpposePostService {
+	rpc abetOrOpposePostInfo (ComponentRequest) returns (AbetOrOpposePostResponse);
+}

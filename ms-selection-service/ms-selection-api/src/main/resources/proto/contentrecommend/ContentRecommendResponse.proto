@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message  ContentRecommendResponse {
+	//组件编号
+	string pluginCode=1;
+	//状态码
+	string status=2;
+	//是否可见
+	string isvisable=3;
+	//状态描述
+	string messageDesc=4;
+
+	ContentRecommendData data=5;
+
+}
+message ContentRecommendData{
+    //上边距
+	string isMarginTop = 1;
+	//下边距
+	string isMarginBottom = 2;
+	//是否显示内边距
+	string isPaddingTop = 3;
+	//是否展示底部横线
+	string isShowLine = 4;
+    //数据来源: 1:UES读过还读;2:同系列推荐;3:UES买过还买过;4:ues同作者作品;5:BI读过还读;6:BI买过还买过;7:BI浏览还浏览; 默认1
+    string dataFrom = 5;
+	//文本标题
+	string title = 6;
+	//展示样式:默认:3;枚举值:1:一行书名+读过人数;2:一行书名+作者;3:两行书名;
+	string style = 7;
+
+	repeated BookList bookList=8;
+    //bi请求参数，当dataFrom为5,6,7时，返回调用bi需要的参数
+	BiData biData = 9;
+	
+}
+message BookList{
+	string bookName=1;
+	string authorName=2;
+	string bookCover=3;
+	string bookUrl=4;
+	string coPercent=5;
+	string contentType=6;//区别再看、还是在听
+
+}
+
+message BiData{
+    //用户msisdn
+    string msisdn = 1;
+    //图书id
+    string bid = 2;
+    //页码
+    string pageNo = 3;
+    //展示数量
+    string showNum = 4;
+    //客户端版本号;请求头client_version中获取，默认"android"
+    string clientVersion = 5;
+    //组件id
+    string instanceId = 6;
+}

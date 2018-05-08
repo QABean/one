@@ -1,0 +1,36 @@
+syntax = "proto3";
+option java_package="cn.migu.selection.proto.base";
+
+message IntelliAdResponse{
+	//业务编码
+	string pluginCode = 1;
+	//状态码
+	string status = 2;
+	//是否可见
+	string isvisable = 3;
+	//状态描述
+	string messageDesc = 4;
+	//响应数据
+	IntelliAdData data = 5;	
+}
+
+message IntelliAdData{
+	//是否展示底部横线
+	string isShowLine = 1;
+	//上边距
+	string isMarginTop = 2;
+	//下边距
+	string isMarginBottom = 3;
+	//是否显示内边距
+	string isPaddingTop = 4;
+	//推荐位编号
+	string recNum = 5;
+	//外部广告id
+	string wzid = 6;
+	//图片尺寸枚举
+	string picSize = 7; 
+	// 用户偏好枚举
+	string prefers = 8;
+	// 省份编码
+	string provinceId = 9;
+}

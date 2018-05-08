@@ -1,0 +1,12 @@
+syntax = "proto3";
+import "common/ComponentRequest.proto";
+import "componentShow/ComponentShowResponse.proto";
+option java_package = "cn.migu.selection.proto.ComponentShowService";
+option java_outer_classname = "_ComponentShowService";
+option java_generic_services = true;
+
+service ComponentShowService{
+
+  rpc getComponentShow (ComponentRequest) returns (ComponentShowResponse);
+
+}

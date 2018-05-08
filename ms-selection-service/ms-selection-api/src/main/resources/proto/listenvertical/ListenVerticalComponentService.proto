@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "common/ComponentRequest.proto";
+import "listenvertical/ListenVerticalComponentResponse.proto";
+
+option java_package = "cn.migu.selection.proto.listenVerticalComponentService";
+option java_outer_classname = "_ListenVerticalComponentService";
+option java_generic_services = true;
+
+service ListenVerticalComponentService {
+	rpc getListenVerticalComponentShowInfo (ComponentRequest) returns (ListenVerticalComponentResponse);
+}

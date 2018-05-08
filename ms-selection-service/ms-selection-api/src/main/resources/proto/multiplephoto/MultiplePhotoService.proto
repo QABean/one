@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "common/ComponentRequest.proto";
+import "multiplephoto/MultiplePhotoResponse.proto";
+
+option java_package = "cn.migu.selection.proto.multiplephotoservice";
+option java_outer_classname = "_MultiplePhotoService";
+option java_generic_services = true;
+
+service MultiplePhotoService {
+	rpc getComponentShowInfo (ComponentRequest) returns (MultiplePhotoResponse);
+}

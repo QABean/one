@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message NewUserLoginPrizeResponse{
+	 string pluginCode = 1;
+     string status = 2;
+     string isvisable = 3;
+     string messageDesc = 4;
+     NewUserLoginPrize data = 5;
+     map<string, string> ctag = 6;
+    
+}
+
+message NewUserLoginPrize{
+	
+     string isShowLine = 1; 
+	 string isMarginTop = 2;
+	 string isMarginBottom = 3;
+	 string isPaddingTop = 4;
+	 
+	 string scene = 5;  // 场景枚举，1 新用户入口，2 新用户权益内容页
+	 string moreUrl = 6;  // 更多福利链接
+	 bool newUser = 7; // 是否新用户
+	 string ajaxDraw = 8; // 领取礼品接口
+	 
+	 repeated TicketRecords ticketRecords = 9;
+}
+
+message TicketRecords{
+
+    int32 amount = 1;//金额，单位待定
+    int32 dayNum = 2;//连续登录的天数，范围1~3。
+    int32 status = 3;//礼品领取状态，0：未领取 1：已领取 2：已失效 3：未知
+}
+
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<!-- sample cache config begin -->
+	<memcache-localCache>
+		<bossproductinfo>true</bossproductinfo>
+		<bossproductinfo-time>86400</bossproductinfo-time>
+		<bookitem>false</bookitem>
+		<bookItemExt>false</bookItemExt>
+		<bookCover>true</bookCover>
+		<bookCover-time>30</bookCover-time>
+		<node-bookmap-time>60</node-bookmap-time>
+		<user-cache-switch>false</user-cache-switch>
+	</memcache-localCache>
+	<cache>
+		<cache-type>2</cache-type>
+		<init-task-thread-num-min>2</init-task-thread-num-min>
+		<init-task-thread-num-max>4</init-task-thread-num-max>
+	</cache>
+	<thread-pool>
+		<!-- the min count for GeneralThreadPool -->
+		<min-thread-count>4</min-thread-count>
+		<!-- the max count for GeneralThreadPool -->
+		<max-thread-count>8</max-thread-count>
+		<!-- the thread queue for GeneralThreadPool -->
+		<thread-queue>10000</thread-queue>
+	</thread-pool>
+	<memcache-source>
+		<!-- <use-etcd-type>2</use-etcd-type>
+		<mc-list>10.211.95.75:1919, 10.211.95.74:1919</mc-list> -->
+		<use-etcd-type>1</use-etcd-type>
+		<mc-list>10.211.95.79:12111</mc-list>
+		<min>1024</min>
+		<max>1024</max>
+		<linksNum>5</linksNum>
+	</memcache-source>
+	<test_switch>0</test_switch>
+	<test_url>http://200.200.6.71:8080/dsfcallweb/portalengine/WebCallServlet/</test_url>
+	<white_list></white_list>
+	<forum_jump_url>http://wap.cmread.com/sns/wap/l/forum/forum.jsp</forum_jump_url>
+	<author_detail_url>http://wap.cmread.com/r/p/authorDetail.jsp</author_detail_url>
+	
+</config>

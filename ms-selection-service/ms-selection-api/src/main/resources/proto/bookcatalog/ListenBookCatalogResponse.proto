@@ -1,0 +1,36 @@
+syntax = "proto3";
+option java_package="cn.migu.selection.proto.base";
+
+message ListenBookCatalogResponse{
+	string pluginCode = 1;
+    string status = 2;
+    string isvisable = 3;
+    string messageDesc = 4;
+    ListenBookCatalogData data=5; 
+}
+
+message ListenBookCatalogData{
+    string isShowLine = 1;
+    string isFinish = 2;
+    string totalChapterNum = 3;
+    repeated ListenChapter chapters=4; 
+    string updateTime = 5;
+    string contentType=6;
+    string bookId=7;
+    string bookName=8;
+    string bookCover=9;
+    string authorName=10;
+    string chargeMode=11;
+    string bookLevel=12;
+    map<string, string> ctag = 13;
+    string sortType=14;
+    string isMarginTop = 15;
+	string isMarginBottom = 16;
+	string isPaddingTop = 17;
+}
+
+message ListenChapter{
+	string chapterId=1;
+	string chapterName=2;
+	string feeStatus=3;
+}

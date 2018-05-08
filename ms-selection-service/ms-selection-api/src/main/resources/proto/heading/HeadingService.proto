@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+import "common/ComponentRequest.proto";
+import "heading/HeadingResponse.proto";
+import "heading/GeneralHeadingResponse.proto";
+
+option java_package = "cn.migu.selection.proto.headingservice";
+option java_outer_classname = "_HeadingService";
+option java_generic_services = true;
+
+service HeadingService {
+	// 获取标题栏信息
+	rpc getHeadingInfo (ComponentRequest) returns (HeadingResponse);
+	//获取通用标题
+	rpc getGeneralHeading (ComponentRequest) returns (GeneralHeadingResponse);
+}

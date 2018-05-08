@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "common/ComponentRequest.proto";
+import "bookcontentdesc/BookContentDescResponse.proto";
+
+option java_package="cn.migu.selection.proto.bookcontentdescservice";
+option java_outer_classname="_BookContentDescService";
+option java_generic_services=true;
+
+service BookContentDescService {
+	rpc getBookContentDescInfo (ComponentRequest) returns (BookContentDescResponse);
+}

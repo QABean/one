@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "common/ComponentRequest.proto";
+import "recommendfamous/RecommendFamousResponse.proto";
+option java_package = "cn.migu.selection.proto.RecommendFamousService";
+option java_outer_classname = "_RecommendFamousService";
+option java_generic_services = true;
+
+service  RecommendFamousService{
+
+rpc getRecommendFamousInfo(ComponentRequest) returns (RecommendFamousResponse);
+}

@@ -1,0 +1,30 @@
+syntax = "proto3";
+option java_package="cn.migu.selection.proto.base";
+
+message BannerSwiperResponse {
+	
+	string pluginCode = 1;
+    string status = 2;
+    string isvisable = 3;
+    string messageDesc = 4;
+    BannerSwiperData data=5; 
+}
+
+
+message BannerSwiperData{
+
+	string totalNum=1;
+	string isShowLine=2;
+	repeated BannerSwiperBanner banner = 3;
+	map<string, string> ctag = 4;
+	string  isMarginTop=5;
+	string  isMarginBottom=6;
+}
+
+message  BannerSwiperBanner{
+	
+	string picUrl=1;
+	
+	string url=2; 
+	
+}

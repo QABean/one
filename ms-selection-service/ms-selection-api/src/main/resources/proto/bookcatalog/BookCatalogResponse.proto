@@ -1,0 +1,41 @@
+syntax = "proto3";
+option java_package="cn.migu.selection.proto.base";
+
+message BookCatalogResponse{
+	string pluginCode = 1;
+    string status = 2;
+    string isvisable = 3;
+    string messageDesc = 4;
+    BookCatalogData data=5; 
+}
+
+message BookCatalogData{
+    string isShowLine = 1;
+    /**是否完结*/
+    bool bookFinished = 2;
+    /**章节名称*/
+    string chapterName = 3;
+	/**更新时间*/
+    string updateTime = 4;
+    /**图书类型*/
+    string contentType=5;
+    /**图书id*/
+    string bookId=6;
+    /**图书名称*/
+    string bookName=7;
+    /**图书封面*/
+    string bookCover=8;
+    /**作家名称*/
+    string authorName=9;
+    /**计费模式*/
+    string chargeMode=10;
+    map<string, string> ctag = 11;
+    string  isMarginTop=12;
+	string  isMarginBottom=13;
+	string isPaddingTop = 14;
+	/**当前时间*/
+	string nowTime = 15;
+	/**图书等级*/
+	string bookLevel = 16;
+}
+

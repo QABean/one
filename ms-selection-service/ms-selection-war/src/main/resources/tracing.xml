@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd ">
+
+    <context:annotation-config />
+    <!-- 监控 -->
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="staticMethod" value="io.prometheus.client.hotspot.DefaultExports.initialize" />
+    </bean>
+
+    <bean id="tracing.configuration" class="cn.migu.wheat.tracing.Configuration">
+        <property name="enabled" value="${tracing.enabled:false}" />
+        <property name="endpoint" value="${tracing.endpoint:}" />
+        <property name="connectTimeout" value="0" />
+        <property name="readTimeout" value="0" />
+        <property name="compression" value="false" />
+        <property name="messageMaxBytes" value="0" />
+        <property name="queuedMaxSpans" value="0" />
+        <property name="queuedMaxBytes" value="0" />
+        <property name="type" value="${tracing.sampler.type:probabilistic}" />
+        <property name="rate" value="${tracing.sampler.rate:0.01}" />
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="staticMethod" value="cn.migu.wheat.tracing.Initializer.init" />
+        <property name="arguments">
+            <list>
+                <ref bean="tracing.configuration" />
+            </list>
+        </property>
+    </bean>
+    
+</beans>

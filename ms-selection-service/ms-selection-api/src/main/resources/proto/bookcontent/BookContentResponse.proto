@@ -1,0 +1,44 @@
+syntax = "proto3";
+option java_package="cn.migu.selection.proto.base";
+
+message BookContentResponse{
+	string pluginCode = 1;
+    string status = 2;
+    string isvisable = 3;
+    string messageDesc = 4;
+    BookContentData data=5; 
+}
+
+message BookContentData{
+    string isShowLine = 1;
+    string isUgc = 2;
+    string ugcDesc = 3;
+    string ugcLink = 4;
+    string isMember = 5;
+    string bookCover = 6;
+    string bookName = 7;
+    string bookStar = 8;		//图书评分
+    string bookAuthor = 9;
+    string authorUrl = 10;
+    string ugcTime = 11;		//上传时间
+    string bookCate = 12;
+    int32 wordCount = 13; 		//图书字数
+    bool bookFinished = 14;	//图书是否完结
+    string bookPrice = 15;
+    string bookRealPrice = 16;
+    string bookPriceDesc = 17;
+    string contentType = 18;
+    string speakerName = 19;
+    string audioDuration = 20;
+    string speakerUrl = 21;
+    string isMarginTop = 22;
+    string isMarginBottom = 23;
+    string  isPaddingTop = 24;
+    string ajaxBookFee = 25;	//获取资费接口，带参数
+    map<string, string> ctag = 26;
+    string isActivity = 27;	//是否有赠书活动 1.有 0无
+    string presentType = 28;		//赠书类型
+    string bookGiveUrl = 29;		//赠书页Url
+	string isReceived = 30;			//用户是否通过赠书获得该书:0否，1：是;默认否
+	string receivedContext = 31;	//当用户通过赠书活动获得该图书时，提示语
+}

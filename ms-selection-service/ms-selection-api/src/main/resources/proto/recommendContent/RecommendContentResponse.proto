@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+option java_package = "cn.migu.selection.proto.base";
+
+message RecommendContentResponse {
+	//组件编号
+	string pluginCode=1;
+	//状态码
+	string status = 2;
+	//是否可见
+	string isvisable = 3;
+	//状态描述
+	string messageDesc = 4;
+	
+	RecommendContentData data = 5;
+}
+
+message RecommendContentData{
+	//上边距
+	string isMarginTop = 1;
+	//下边距
+	string isMarginBottom = 2;
+	//是否显示内边距
+	string isPaddingTop = 3;
+	//是否展示底部横线
+	string isShowLine = 4;
+	//打赏页
+	string rewardUrl = 5;
+	//评论页
+	string commentUrl = 6;
+    //月票的预制页地址
+	string monthTicketUrl = 7;
+	//我的评分，默认值0
+	int32 myScore = 8;
+	//评分地址
+	string addBookScoreUrl = 9;
+	//评论地址
+	string addBookPostUrl = 10;
+	//图书状态
+	string bookStatus = 11;
+	//图书名称
+	string bookName  = 12;
+	//图书id
+	string bid = 13;
+	//图书封面
+	string bookCoverLogo = 14;
+	//预定更新地址  完本情况给空
+	string bookReserveAction = 15;
+	//返回boolean值 ture 已经预定跟新否则没有
+	bool isReserve = 16;
+	//富文本
+	string richContent = 17;
+	//分享标题
+	string shareTitle = 18;
+	//分享描述
+	string shareDesc = 19;
+	//
+	ShareInfo shareInfo = 20;
+	
+}
+message ShareInfo{
+    //分享类型： 1:和飞信;2:微信好友;3:朋友圈;4:微博;5:二维码;6:QQ;7:QQ空间;8:其他;  默认：1,2,3,4,5,6,7,8
+    string shareChange = 1;
+    //判断当前版本是否支持shareContentEx()方法1支持0不支持
+    string isSupportshareContentEx = 2;
+    //是否支持QQ分享1支持0不支持
+    string isSupportQQ = 3;
+    //是否支持 更多分享 1支持0不支持
+    string iszhichiMore = 4;
+    //是否支持和飞信分享 1支持0不支持
+    string iszhichiHFX = 5;
+    //点击分享者的mbid
+    string mbid = 6;
+    //分享成功是否跳转页面 1:是;2:否; 默认2
+    string shareSuccessLink = 7;
+    //分享成功跳转地址
+    string successLink = 8;
+    //跳转周期设置 : 1:总共一次;2:一天一次;3:不限次数; 默认1
+    string linkCycle = 9;
+}

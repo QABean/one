@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cn.migu</groupId>
+		<artifactId>migu-parent</artifactId>
+		<version>3</version>
+	</parent>
+	<groupId>cn.migu.newportal</groupId>
+	<artifactId>ms-selection-service</artifactId>
+	<version>0.4.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<ms-newportal-bom.version>0.2.0-SNAPSHOT</ms-newportal-bom.version>
+		<service.version>0.4.0-SNAPSHOT</service.version>
+	</properties>
+	<modules>
+
+		<module>ms-selection-api</module> 
+		<module>ms-selection-core</module>
+		<module>ms-selection-war</module>
+	</modules>
+	<repositories>
+		<repository>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<!-- always、daily、interval、never -->
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+			<id>public</id>
+			<name>Public Repositories</name>
+			<url>http://211.140.17.101:8031/nexus/content/groups/group_migu/</url>
+		</repository>
+	</repositories>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>cn.migu.newportal</groupId>
+				<artifactId>ms-newportal-bom</artifactId>
+				<version>${ms-newportal-bom.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

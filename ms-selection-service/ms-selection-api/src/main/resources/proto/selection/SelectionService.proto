@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+import "common/ComponentRequest.proto";
+import "common/NewAjaxResponse.proto";
+import "selection/ApiLevelOneAdResponse.proto";
+import "selection/OrientationFreeBookResponse.proto";
+import "selection/PreferenceLinksResponse.proto";
+import "selection/NewUserLoginPrizeResponse.proto";
+import "selection/NewUserPrizeActionResponse.proto";
+import "selection/IntelliAdResponse.proto";
+import "selection/RankTripleBooksResponse.proto";
+import "selection/GetPersonalRecommendResponse.proto";
+import "selection/ModifyPreferenceEntranceResponse.proto";
+import "recommendContent/RecommendContentResponse.proto";
+import "recommendContent/ReserveUpdateActionResponse.proto";
+import "contentrecommend/ContentRecommendResponse.proto";
+import "miguguess/MiguGuessResponse.proto";
+import "selection/AiRecommendListenResponse.proto";
+import "voiceBook/VoiceBookResponse.proto";
+import "pollingLinks/PollingLinksResponse.proto";
+import "selection/VoteToFreeResponse.proto";
+import "selection/VoteActionResponse.proto";
+import "selection/GuessLikeListResponse.proto";
+
+option java_package = "cn.migu.selection.proto.selectionService";
+option java_outer_classname = "_SelectionService";
+option java_generic_services = true;
+
+service SelectionService{
+	
+	rpc orientationFreeBook (ComponentRequest) returns (OrientationFreeBookResponse);//综合首页定向免费
+
+	rpc preferenceLinks (ComponentRequest) returns (PreferenceLinksResponse);//偏好排序展示
+	
+	rpc newUserLoginPrize(ComponentRequest)returns (NewUserLoginPrizeResponse);//新用户登陆新礼
+	
+	rpc drawNewUserPrize(ComponentRequest)returns (NewUserPrizeActionResponse);//新用户领奖action
+	
+	rpc getRankTriplebooks (ComponentRequest) returns (RankTripleBooksResponse);//排行三封面
+		
+	rpc intelliAd(ComponentRequest) returns (IntelliAdResponse);//智能广告
+	
+	rpc getPersonalRecommend(ComponentRequest) returns (GetPersonalRecommendResponse);//私人推荐
+	
+	rpc modifyPreferenceEntrance(ComponentRequest) returns (ModifyPreferenceEntranceResponse);//偏好修改入口
+
+    rpc getRecommendContent (ComponentRequest) returns (RecommendContentResponse);//推荐文本
+
+    rpc reserveUpdateAction (ComponentRequest) returns (ReserveUpdateActionResponse);//预订图书action
+
+    rpc getContentRecommendInfo (ComponentRequest) returns (ContentRecommendResponse);//同类推荐
+
+    rpc getMiguGuessInfo (ComponentRequest) returns (MiguGuessResponse);//咪咕猜
+
+	rpc aiRecommendListen (ComponentRequest) returns (AiRecommendListenResponse);//智能推荐
+
+	rpc multiPicFreeListen (ComponentRequest) returns (VoiceBookResponse);//多图展示-免费听书
+
+	rpc getPollingLinkInfo (ComponentRequest) returns (PollingLinksResponse);//轮询链接列表
+
+	rpc getVoteToFree (ComponentRequest) returns (VoteToFreeResponse);//投票
+	rpc getVoteAction (ComponentRequest) returns (VoteActionResponse);//投票action
+	
+	rpc getApiLevelOneAd (ComponentRequest) returns (ApiLevelOneAdResponse);//一级平台广告
+	rpc getAdvertRecord (ComponentRequest) returns (NewAjaxResponse);//记录广告
+
+	rpc guessLikeList (ComponentRequest) returns (GuessLikeListResponse);//猜你喜欢组件
+}

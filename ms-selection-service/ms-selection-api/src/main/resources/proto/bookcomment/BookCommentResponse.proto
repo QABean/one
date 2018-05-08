@@ -1,0 +1,35 @@
+syntax = "proto3";
+option java_package="cn.migu.selection.proto.base";
+
+message BookCommentResponse{
+	string pluginCode = 1;
+    string status = 2;
+    string isvisable = 3;
+    string messageDesc = 4;
+    BookCommentData data=5; 
+}
+
+message BookCommentData{
+    string isShowLine = 1;
+    string totalNum = 2;
+    string writeCommentUrl = 3;
+    string bookCommentUrl = 4;
+    repeated Comment commentList = 5;
+    map<string, string> ctag = 6;
+    string  isMarginTop=7;
+	string  isMarginBottom=8;
+}
+
+message Comment{
+	string postId=1;
+	string posterName=2;
+	string posterIdentity=3;
+	string posterTime=4;
+	string posterContent=5;
+	string posterPic=6;
+	string upDownCount=7;
+	string upDownUrl=8;
+	string replyNum=9;
+	string replyUrl=10;
+	string isApprovedByMe=11;
+}

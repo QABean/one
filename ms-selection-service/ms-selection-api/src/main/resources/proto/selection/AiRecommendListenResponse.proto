@@ -1,0 +1,34 @@
+syntax = "proto3";
+option java_package="cn.migu.selection.proto.base";
+
+message AiRecommendListenResponse{
+	//业务编码
+	string pluginCode = 1;
+	//状态码
+	string status = 2;
+	//是否可见
+	string isvisable = 3;
+	//状态描述
+	string messageDesc = 4;
+	//响应数据
+	AiRecommendListenData data = 5;
+}
+
+message AiRecommendListenData{
+	//是否展示底部横线
+	string isShowLine = 1;
+	//上边距
+	string isMarginTop = 2;
+	//下边距
+	string isMarginBottom = 3;
+	//是否显示内边距
+	string isPaddingTop = 4;
+	// 手机号
+	string msisdn = 5;
+	//标题
+	string title = 6;
+	//分页大小
+	int32 pageSize = 7;
+
+
+}
