@@ -232,6 +232,7 @@
 		<constructor-arg index="1" value="${ms.default.version}" />
 	</bean>-->
 	
+	<bean id="test1"/>
 	
 	<!-- 首页新增组件 -->
 	<bean id="ms.selection.selectionService.consumer"
